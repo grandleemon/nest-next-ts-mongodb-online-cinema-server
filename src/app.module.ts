@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config'
 import { databaseConfig } from './config/configuration'
 import { SequelizeModule } from '@nestjs/sequelize'
 import { SequelizeConfigService } from './config/sequelizeConfig.service'
+import { AuthModule } from './auth/auth.module'
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -14,7 +16,9 @@ import { SequelizeConfigService } from './config/sequelizeConfig.service'
     SequelizeModule.forRootAsync({
       imports: [ConfigModule],
       useClass: SequelizeConfigService,
-    })],
+    }),
+    AuthModule,
+    UserModule],
   controllers: [AppController],
   providers: [AppService],
 })
