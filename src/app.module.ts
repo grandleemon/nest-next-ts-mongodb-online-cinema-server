@@ -1,23 +1,19 @@
 import { Module } from '@nestjs/common'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { SequelizeModule } from '@nestjs/sequelize'
 import { ConfigModule } from '@nestjs/config'
+import { databaseConfig } from './config/configuration'
+import { SequelizeModule } from '@nestjs/sequelize'
+import { SequelizeConfigService } from './config/sequelizeConfig.service'
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      load: [databaseConfig],
     }),
-    SequelizeModule.forRoot({
-      dialect: 'postgres',
-      host: process.env.DATABASE_HOST,
-      port: Number(process.env.DATABASE_PORT),
-      username: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      database: process.env.DATABASE_NAME,
-      models: [],
-      autoLoadModels: true,
+    SequelizeModule.forRootAsync({
+      imports: [ConfigModule],
+      useClass: SequelizeConfigService,
     })],
   controllers: [AppController],
   providers: [AppService],
