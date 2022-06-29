@@ -1,0 +1,1 @@
+export type TypeRole = 'admin' | 'user' | 'local' | undefined

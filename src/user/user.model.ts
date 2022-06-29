@@ -7,10 +7,13 @@ export interface UserModel extends Base {
 export class UserModel extends TimeStamps {
   @prop({ unique: true })
   email: string
+
   @prop()
   password: string
+
   @prop({ default: false })
-  isAdmin: string
+  isAdmin?: boolean
+
   @prop({ default: [] })
   favorites?: []
 }

@@ -8,15 +8,17 @@ import { Injectable } from '@nestjs/common'
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor(private readonly configService: ConfigService, @InjectModel(UserModel) private readonly UserModel: ModelType<UserModel>) {
+  constructor(private readonly configService: ConfigService,
+              @InjectModel(UserModel) private readonly UserModel: ModelType<UserModel>) {
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken,
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: true,
       secretOrKey: configService.get('JWT_SECRET'),
     })
   }
 
-  async validate({ _id }: Pick<UserModel, '_id'>) {
-    return this.UserModel.findById(_id).exec()
+  async validate(payload: any) {
+    console.log('eqwe')
+    return { userId: payload.sub, username: payload.username }
   }
 }
