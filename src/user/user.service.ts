@@ -42,7 +42,7 @@ export class UserService {
   }
 
   async getCount() {
-    return this.userModel.find().count().exec()
+    return this.userModel.find().count()
   }
 
   async getAllUsers(searchTerm?: string) {
