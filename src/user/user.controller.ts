@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common'
 import { UserService } from './user.service'
 import { Auth } from '../auth/decorators/auth.decorator'
+import { User } from './decorators/user.decorator'
 
 @Controller('users')
 export class UserController {
@@ -17,8 +18,7 @@ export class UserController {
 
   @Get('profile')
   @Auth()
-  async getProfile() {
-    console.log('ewqe')
-    return { email: 'eqweqwe' }
+  async getProfile(@User('_id') _id: string) {
+    return this.userService.byId(_id)
   }
 }

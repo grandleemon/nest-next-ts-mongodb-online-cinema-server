@@ -1,7 +1,8 @@
-import { CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common'
+import { CanActivate, ExecutionContext, ForbiddenException, Injectable } from '@nestjs/common'
 import { Reflector } from '@nestjs/core'
 import { UserModel } from '../../user/user.model'
 
+@Injectable()
 export class OnlyAdminGuard implements CanActivate {
   constructor(private reflector: Reflector) {
   }

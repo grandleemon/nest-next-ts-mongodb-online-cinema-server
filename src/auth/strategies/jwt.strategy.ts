@@ -17,8 +17,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     })
   }
 
-  async validate(payload: any) {
-    console.log('eqwe')
-    return { userId: payload.sub, username: payload.username }
+  async validate({ _id }: Pick<UserModel, '_id'>) {
+    return this.UserModel.findById(_id)
   }
 }
