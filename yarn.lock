@@ -1791,6 +1791,14 @@ class-transformer@^0.5.1:
   resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.5.1.tgz#24147d5dffd2a6cea930a3250a677addf96ab336"
   integrity sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw==
 
+class-validator-mongo-object-id@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/class-validator-mongo-object-id/-/class-validator-mongo-object-id-1.3.0.tgz#87ff0226da8132cbaf05cc470dcbe9203e2a803e"
+  integrity sha512-LiXaZkhPoqZ2TvXV7duHsbed/cdM7uU/EOOIV53ZjsuS4N03e+wbQ64fxBr0AA3psrdhrD8llWe5FdttcqRqRA==
+  dependencies:
+    class-validator "^0.13.2"
+    mongoose "^6.2.1"
+
 class-validator@^0.13.2:
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/class-validator/-/class-validator-0.13.2.tgz#64b031e9f3f81a1e1dcd04a5d604734608b24143"
@@ -3729,10 +3737,23 @@ mongodb@4.7.0:
   optionalDependencies:
     saslprep "^1.0.3"
 
-mongoose@*, mongoose@^6.4.0:
+mongoose@*:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.4.0.tgz#22d6ab436bdf444b833e92faaa53e47b734c15c6"
   integrity sha512-eBDrueap1Zx3qFrcYylTiqTFlL5iTEaYAxoDF1MSRdipwAzChQRMJve+vxHtxPhI2q5tmf9RYHfZwXfTUHPd3g==
+  dependencies:
+    bson "^4.6.2"
+    kareem "2.4.1"
+    mongodb "4.7.0"
+    mpath "0.9.0"
+    mquery "4.0.3"
+    ms "2.1.3"
+    sift "16.0.0"
+
+mongoose@^6.2.1, mongoose@^6.4.2:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.4.2.tgz#79efd7f1e606114045a3de2bbd0a0972823d02dc"
+  integrity sha512-VRotms+XC42vPlS3Tr2GTg0qkppHzWob62sUjdC22ir8aqWVrbCsHjEuMsL6zZlKSIj8zNBODm9hRV+RHRiLRQ==
   dependencies:
     bson "^4.6.2"
     kareem "2.4.1"
