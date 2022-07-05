@@ -131,7 +131,7 @@ export class MovieService {
 
     const msg = `<b>${dto.title}</b>`
 
-    // await this.telegramService.sendPhoto('')
+    await this.telegramService.sendPhoto('https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/streams/2012/April/120424/337500-crysis.jpg')
 
     await this.telegramService.sendMessage(msg, {
       reply_markup: {
